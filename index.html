@@ -85,7 +85,7 @@
 
     <section class="relative min-h-screen flex items-center justify-center text-center px-4 overflow-hidden pt-16">
         <div class="absolute inset-0 z-0">
-            <img src="https://i.postimg.cc/nzDmC0nb/zi-ling-yu-ren-164.jpg" 
+            <img src="https://i.postimg.cc/1X6hZjgC/zi-ling-yu-ren-129.jpg" 
                  alt="Wedding Couple Cover" 
                  class="w-full h-full object-cover object-center scale-105 transform transition duration-1000 ease-out"
                  onerror="this.src='https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1920&q=80'">
@@ -210,7 +210,7 @@
                     </div>
                     <div class="w-full min-w-0">
                         <h4 class="text-xl md:text-2xl font-bold tracking-widest mb-4">【 停車資訊 】</h4>
-                        <p class="text-sm md:text-base text-morandi-dark mt-1 font-medium mb-3">飯店週邊有特約停車場</p>
+                        <p class="text-sm md:text-base text-morandi-dark mt-1 font-medium mb-3">飯店週邊特約停車場</p>
 
                         <div class="space-y-3">
                             <div class="p-3.5 rounded-2xl bg-stone-50 border border-stone-200/60 flex flex-col sm:flex-row sm:items-center justify-between gap-2.5">
@@ -296,7 +296,7 @@
                     </select>
                 </div>
 
-                <!-- 可隱藏區域（親自出席時顯示，無法出席時自動停用） -->
+                <!-- 可隱藏區域（親自出席時顯示） -->
                 <div id="attendance-fields" class="space-y-6 transition-all duration-300">
                     <!-- 參加午宴人數 (entry.1243864327) -->
                     <div id="guest-count-container">
@@ -306,7 +306,7 @@
                         <input type="number" 
                                id="guest-count"
                                name="entry.1243864327" 
-                               min="1" 
+                               min="0" 
                                max="10" 
                                value="1" 
                                class="w-full px-4 py-3 rounded-xl border border-stone-200 focus:border-morandi-gold focus:ring-1 focus:ring-morandi-gold outline-none transition text-base bg-stone-50/30">
@@ -378,10 +378,13 @@
         <p class="font-light">Thank you for being part of our story.</p>
     </footer>
 
+    <!-- 隱藏式 Iframe，用於可靠接收 Google 表單傳送結果 -->
+    <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
+
     <!-- 防呆：二次確認彈窗 -->
     <div id="confirm-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 modal-blur opacity-0 pointer-events-none transition-opacity duration-300">
         <div class="bg-white rounded-3xl p-6 sm:p-8 max-w-md w-full shadow-2xl border border-morandi-gold/20 transform scale-95 transition-transform duration-300" id="confirm-card">
-            <h3 class="font-serif text-xl sm:text-2xl font-bold text-morandi-dark text-center mb-1">請核對您的回函資訊</h3>
+            <h3 class="font-serif text-xl sm:text-2xl font-bold text-morandi-dark text-center mb-1">請確認您回覆的資訊</h3>
             <p class="text-xs text-morandi-muted text-center mb-6">確認無誤後點選下方按鈕正式送出</p>
             
             <div class="space-y-3 text-sm bg-morandi-sageLight/30 p-4 rounded-2xl border border-stone-200/50 mb-6" id="confirm-details">
@@ -450,14 +453,19 @@
         function checkGuestCount() {
             const attendance = document.getElementById("attendance-select").value;
             const fieldsContainer = document.getElementById("attendance-fields");
-            const inputsToToggle = fieldsContainer.querySelectorAll("input, select");
+            const guestCountInput = document.getElementById("guest-count");
 
             if (attendance.includes("無法出席")) {
                 fieldsContainer.style.display = "none";
-                inputsToToggle.forEach(el => el.disabled = true);
+                // 關鍵修正：Google 表單背景對人數設有「數字>0」驗證。
+                // 傳送 0 會被後台退件，因此背景保持合法數值 1 以順利通過驗證。
+                // 後台以「出席意願：無法出席，獻上祝福！」欄位為準。
+                guestCountInput.value = "1";
             } else {
                 fieldsContainer.style.display = "block";
-                inputsToToggle.forEach(el => el.disabled = false);
+                if (!guestCountInput.value || parseInt(guestCountInput.value) < 1) {
+                    guestCountInput.value = "1";
+                }
             }
         }
         checkGuestCount();
@@ -516,25 +524,21 @@
             btn.disabled = true;
             btn.innerHTML = `<i class="fa-solid fa-spinner fa-spin mr-1"></i> 發送中...`;
 
-            const formData = new FormData(form);
+            checkGuestCount();
+
             const formUrl = "https://docs.google.com/forms/d/e/1FAIpQLSc4XKYpvd_gRp0P77IvYKUV8iuEtG2XNhGdATDwcs-CoZz9mg/formResponse";
 
-            fetch(formUrl, {
-                method: "POST",
-                mode: "no-cors",
-                body: formData
-            }).then(() => {
+            form.action = formUrl;
+            form.target = "hidden_iframe";
+
+            form.submit();
+
+            setTimeout(() => {
                 closeConfirmModal();
                 btn.disabled = false;
                 btn.innerHTML = `<span>確認送出</span><i class="fa-solid fa-check text-xs"></i>`;
                 handleFormSuccess();
-            }).catch(err => {
-                console.error("Form submit error:", err);
-                closeConfirmModal();
-                btn.disabled = false;
-                btn.innerHTML = `<span>確認送出</span><i class="fa-solid fa-check text-xs"></i>`;
-                handleFormSuccess();
-            });
+            }, 800);
         }
 
         function openConfirmModal() {
