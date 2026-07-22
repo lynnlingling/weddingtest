@@ -87,25 +87,26 @@
         <div class="absolute inset-0 z-0">
             <img src="https://i.postimg.cc/1X6hZjgC/zi-ling-yu-ren-129.jpg" 
                  alt="Wedding Couple Cover" 
-                 class="w-full h-full object-cover object-center scale-105 transform transition duration-1000 ease-out"
+                 class="w-full h-full object-cover object-center scale-105 md:scale-100 transform transition duration-1000 ease-out"
+                 style="image-rendering: -webkit-optimize-contrast;"
                  onerror="this.src='https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1920&q=80'">
             <div class="absolute inset-0 hero-overlay"></div>
         </div>
 
-        <div class="relative z-10 max-w-3xl mx-auto text-white mt-12 px-6">
-            <p class="font-serif italic text-lg md:text-2xl text-white tracking-widest mb-3 uppercase">We Are Getting Married</p>
+        <div class="relative z-10 max-w-3xl mx-auto text-white mt-4 md:mt-8 px-6">
+            <p class="font-serif italic text-xl md:text-3xl text-white tracking-widest mb-6 uppercase">We Are Getting Married</p>
 
             <p class="text-xs md:text-sm font-light tracking-[0.3em] text-stone-200 uppercase mb-8">
                 YU-REN &amp; ZI-LING
             </p>
             
-            <div class="inline-block border-y border-white/40 py-2.5 px-8 backdrop-blur-sm bg-black/10 rounded-sm">
+            <div class="inline-block border-y border-white/40 py-2.5 px-8 backdrop-blur-sm bg-black/10 rounded-sm mt-12 md:mt-16">
                 <p class="font-serif text-base md:text-xl tracking-widest text-white">
-                    2026 . 11 . 14 <span class="text-xs md:text-sm tracking-normal font-sans font-light ml-2">SATURDAY</span>
+                    2026 . 11 . 14 <span class="font-serif italic text-sm md:text-base tracking-widest ml-2">SATURDAY</span>
                 </p>
             </div>
 
-            <div class="mt-16 animate-bounce">
+            <div class="mt-12 animate-bounce">
                 <a href="#countdown" class="text-white/80 hover:text-morandi-gold transition">
                     <i class="fa-solid fa-chevron-down"></i>
                 </a>
@@ -169,10 +170,18 @@
                     <div class="w-10 h-10 rounded-2xl bg-morandi-gold/15 flex items-center justify-center text-morandi-gold flex-shrink-0 mt-1">
                         <i class="fa-regular fa-clock text-lg"></i>
                     </div>
-                    <div>
+                    <div class="w-full min-w-0">
                         <h4 class="text-xl md:text-2xl font-bold tracking-widest mb-4">【 婚禮時間 】</h4>
-                        <p class="text-sm md:text-base text-morandi-dark mt-1 font-medium">2026 年 11 月 14 日 星期六</p>
-                        <p class="text-xs md:text-sm text-morandi-muted mt-2">11:30 AM 入席 | 12:00 PM 準時開宴</p>
+                        <div class="p-3.5 rounded-2xl bg-stone-50 border border-stone-200/60 flex flex-col sm:flex-row sm:items-center justify-between gap-2.5">
+                            <div class="min-w-0">
+                                <div class="font-bold text-morandi-dark text-sm sm:text-base">
+                                    2026 年 11 月 14 日 星期六
+                                </div>
+                                <div class="text-xs sm:text-sm md:text-base text-morandi-muted mt-1 font-medium">
+                                    11:30 AM 入席 | 12:00 PM 準時開宴
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -183,21 +192,21 @@
                     <div class="w-10 h-10 rounded-2xl bg-morandi-gold/15 flex items-center justify-center text-morandi-gold flex-shrink-0 mt-1">
                         <i class="fa-solid fa-location-dot text-lg"></i>
                     </div>
-                    <div>
+                    <div class="w-full min-w-0">
                         <h4 class="text-xl md:text-2xl font-bold tracking-widest mb-4">【 婚禮地點 】</h4>                            
-                        <p class="text-sm md:text-base font-medium mt-2">
-                            <span class="whitespace-nowrap text-morandi-dark">台中全國大飯店</span> 
-                            <span class="whitespace-nowrap text-morandi-gold ml-1">B1國際廳</span>
-                        </p>
-                        <p class="text-xs md:text-sm text-morandi-muted mt-2">
-                            <span class="whitespace-nowrap">臺中市西區民龍里館前路57號</span>
-                            <a href="https://maps.google.com/?q=台中全國大飯店"
-                               target="_blank"
-                               rel="noopener noreferrer"
-                               class="ml-2 inline-flex items-center px-2 py-1 rounded-lg bg-morandi-gold text-white hover:bg-morandi-goldDark text-xs transition">
-                                <i class="fa-solid fa-location-dot text-xs mr-1"></i>導航
+                        <div class="p-3.5 rounded-2xl bg-stone-50 border border-stone-200/60 flex flex-col sm:flex-row sm:items-center justify-between gap-2.5">
+                            <div class="min-w-0">
+                                <div class="font-bold text-morandi-dark text-sm sm:text-base break-words">
+                                    台中全國大飯店 <span class="text-morandi-gold ml-1">B1國際廳</span>
+                                </div>
+                                <div class="text-xs sm:text-sm md:text-base text-morandi-dark mt-1 font-medium">
+                                    臺中市西區館前路57號
+                                </div>
+                            </div>
+                            <a href="https://maps.google.com/?q=台中全國大飯店" target="_blank" rel="noopener noreferrer" class="self-start sm:self-center shrink-0 px-3 py-1.5 rounded-xl bg-morandi-gold text-white hover:bg-morandi-goldDark text-xs transition flex items-center">
+                                <i class="fa-solid fa-location-dot mr-1.5"></i>導航
                             </a>
-                        </p>
+                        </div>
                     </div>
                 </div>
 
@@ -249,7 +258,6 @@
 
             <form id="rsvp-form" onsubmit="handleFormSubmit(event)" class="space-y-6">
 
-                <!-- 姓名 (entry.966700853) -->
                 <div>
                     <label class="block text-sm md:text-base font-bold text-morandi-dark tracking-wider mb-2">
                         姓名 <span class="text-red-400">*</span>
@@ -262,7 +270,6 @@
                            class="w-full px-4 py-3 rounded-xl border border-stone-200 focus:border-morandi-gold focus:ring-1 focus:ring-morandi-gold outline-none transition text-base bg-stone-50/30">
                 </div>
 
-                <!-- 與新人關係 (entry.549017476) -->
                 <div>
                     <label class="block text-sm md:text-base font-bold text-morandi-dark tracking-wider mb-2">
                         與新人關係 <span class="text-red-400">*</span>
@@ -281,7 +288,6 @@
                     </select>
                 </div>
 
-                <!-- 出席意願 (entry.1209376772) -->
                 <div>
                     <label class="block text-sm md:text-base font-bold text-morandi-dark tracking-wider mb-2">
                         出席意願 <span class="text-red-400">*</span>
@@ -296,9 +302,7 @@
                     </select>
                 </div>
 
-                <!-- 可隱藏區域（親自出席時顯示） -->
                 <div id="attendance-fields" class="space-y-6 transition-all duration-300">
-                    <!-- 參加午宴人數 (entry.1243864327) -->
                     <div id="guest-count-container">
                         <label class="block text-sm md:text-base font-bold text-morandi-dark tracking-wider mb-2">
                             參加午宴人數 <span class="text-red-400">*</span>
@@ -312,7 +316,6 @@
                                class="w-full px-4 py-3 rounded-xl border border-stone-200 focus:border-morandi-gold focus:ring-1 focus:ring-morandi-gold outline-none transition text-base bg-stone-50/30">
                     </div>
 
-                    <!-- 飲食需求 (entry.626258175) -->
                     <div class="p-4 rounded-2xl bg-morandi-sageLight/40 border border-morandi-sage/20">
                         <label class="block text-sm md:text-base font-bold text-morandi-dark tracking-wider mb-2">
                             飲食需求
@@ -323,7 +326,6 @@
                         </select>
                     </div>
 
-                    <!-- 是否需要兒童椅 (entry.1260737961) -->
                     <div class="p-4 rounded-2xl bg-morandi-sageLight/40 border border-morandi-sage/20">
                         <label class="block text-sm md:text-base font-bold text-morandi-dark tracking-wider mb-2">
                             是否需要兒童椅
@@ -336,7 +338,6 @@
                         </select>
                     </div>
 
-                    <!-- 喜帖寄送地址 (entry.1136400809) -->
                     <div id="address-container">
                         <label class="block text-sm md:text-base font-bold text-morandi-dark tracking-wider mb-2">
                             喜帖寄送地址
@@ -349,7 +350,6 @@
                     </div>
                 </div>
 
-                <!-- 給新人祝福的話 (entry.736286303) -->
                 <div>
                     <label class="block text-sm md:text-base font-bold text-morandi-dark tracking-wider mb-2">
                         給新人祝福的話
@@ -361,7 +361,6 @@
                               class="w-full px-4 py-3 rounded-xl border border-stone-200 focus:border-morandi-gold focus:ring-1 focus:ring-morandi-gold outline-none transition text-base bg-stone-50/30 resize-none"></textarea>
                 </div>
 
-                <!-- 提交按鈕 -->
                 <div class="pt-4">
                     <button type="submit" id="submit-btn" class="w-full py-4 rounded-xl bg-morandi-gold text-white font-serif text-base md:text-lg tracking-widest shadow-md hover:bg-morandi-goldDark active:scale-[0.99] transition duration-200 flex items-center justify-center space-x-2">
                         <span>核對並送出</span>
@@ -378,17 +377,14 @@
         <p class="font-light">Thank you for being part of our story.</p>
     </footer>
 
-    <!-- 隱藏式 Iframe，用於可靠接收 Google 表單傳送結果 -->
     <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
 
-    <!-- 防呆：二次確認彈窗 -->
     <div id="confirm-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 modal-blur opacity-0 pointer-events-none transition-opacity duration-300">
         <div class="bg-white rounded-3xl p-6 sm:p-8 max-w-md w-full shadow-2xl border border-morandi-gold/20 transform scale-95 transition-transform duration-300" id="confirm-card">
             <h3 class="font-serif text-xl sm:text-2xl font-bold text-morandi-dark text-center mb-1">請確認您回覆的資訊</h3>
             <p class="text-xs text-morandi-muted text-center mb-6">確認無誤後點選下方按鈕正式送出</p>
             
             <div class="space-y-3 text-sm bg-morandi-sageLight/30 p-4 rounded-2xl border border-stone-200/50 mb-6" id="confirm-details">
-                <!-- JavaScript 動態填入 -->
             </div>
 
             <div class="grid grid-cols-2 gap-3">
@@ -403,7 +399,6 @@
         </div>
     </div>
 
-    <!-- 成功提示彈窗 -->
     <div id="success-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/40 modal-blur opacity-0 pointer-events-none transition-opacity duration-300">
         <div class="bg-white rounded-3xl p-8 max-w-sm w-full text-center shadow-2xl border border-morandi-gold/20 transform scale-95 transition-transform duration-300" id="modal-card">
             <div class="w-16 h-16 rounded-full bg-morandi-sageLight flex items-center justify-center text-morandi-sage text-2xl mx-auto mb-4">
@@ -417,7 +412,6 @@
         </div>
     </div>
 
-    <!-- Toast 訊息提示 -->
     <div id="toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 bg-morandi-dark text-white px-6 py-3 rounded-full text-xs tracking-wider opacity-0 pointer-events-none transition-all duration-300 shadow-xl flex items-center space-x-2">
         <i class="fa-solid fa-circle-info text-morandi-gold" id="toast-icon"></i>
         <span id="toast-text">提示內容</span>
@@ -457,9 +451,6 @@
 
             if (attendance.includes("無法出席")) {
                 fieldsContainer.style.display = "none";
-                // 關鍵修正：Google 表單背景對人數設有「數字>0」驗證。
-                // 傳送 0 會被後台退件，因此背景保持合法數值 1 以順利通過驗證。
-                // 後台以「出席意願：無法出席，獻上祝福！」欄位為準。
                 guestCountInput.value = "1";
             } else {
                 fieldsContainer.style.display = "block";
